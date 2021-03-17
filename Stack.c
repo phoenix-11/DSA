@@ -3,6 +3,7 @@
 #define CAPACITY 5
 int top=-1;
 int stack[CAPACITY];
+
 int isfull()
 {
    if(top==CAPACITY-1)
@@ -27,49 +28,43 @@ int isEmpty()
    }
 }
 
-int pop()
+void push()
 {
-   int ele;
-   if(isempty())
-   {
-      return(0);
-   }
-   else
-   {
-      ele=stack[top];
-      top--;
-   }
-   return(top);
-}
-
-int peek()
-{
-   if(isEmpty())
-   {
-      return(0);
-   }
-   else
-   {
-      return(stack[top]);
-      top--;
-   }
-}
-
-void push(int ele)
-{
+   int i=1;
    if(isfull())
    {
       printf("Stack is full\n");
    }
    else
    {
-      top++;
-      stack[top]=ele;
-      printf("%d inserted \n",ele);
+      while(top<CAPACITY)
+      {
+         top++;
+         printf("Enter the data insertion");
+         scanf("%d",&stack[top]);
+      }
+   }
+}
+
+void traverse()
+{
+   int i;
+   if(isEmpty())
+   {
+      printf("Stack is empty\n");
+   }
+   else
+   {
+      printf("Stack elements are : ");
+      for(i=0;i<=top;i++)
+      {
+         printf("%d %d\n",i,stack[i]);
+      }
    }
 }
 
 int main()
 {
-   push(23);
+   push();
+   traverse();
 }
